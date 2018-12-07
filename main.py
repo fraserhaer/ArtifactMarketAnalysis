@@ -1,4 +1,4 @@
-# Refactored and extended by aburntc00kie
+# Refactored and extended by @FraserHaer
 # A big shoutout to the original authors of this script!
 # Original by THE_DQ, edited by vadash
 
@@ -32,8 +32,7 @@ print("Press Enter to refresh prices")
 print()
 
 # print analysis whenever 'enter' is pressed
-# while True:
-if True:
+while True:
     print("--------------------------------------")
     print()
 
@@ -47,6 +46,6 @@ if True:
 
     print("--------------------------------------")
 
-    #input()
-    #market_data.refresh_data()
-
+    input()
+    market_data.refresh_data()
+          
