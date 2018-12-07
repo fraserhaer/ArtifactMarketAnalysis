@@ -20,38 +20,39 @@ class InventoryValue:
         card_counts = {}
         card_names = {}
 
-        with urllib.request.urlopen(URL_INVENTORY_PREFIX + str(steamid64) + URL_INVENOTRY_SUFFIX) as url:
-            data = json.loads(url.read().decode())
+        if steamid64 != 0:
+            with urllib.request.urlopen(URL_INVENTORY_PREFIX + str(steamid64) + URL_INVENOTRY_SUFFIX) as url:
+                data = json.loads(url.read().decode())
 
-        # get count of cards via classid
-        for entry in data["assets"]:
-            str_key = str(entry["classid"])
-            if str_key in card_counts:
-                card_counts[str_key] += 1
-            else:
-                card_counts[str_key] = 1
-
-        # get dictionary of classids and card names
-        for entry in data["descriptions"]:
-            if entry["marketable"] == 1:
-                for tag in entry["tags"]:
-                    if tag["internal_name"] == "card":
-                        str_classid = str(entry["classid"])
-                        if str_classid not in card_names:
-                            card_names[str_classid] = entry["market_name"]
-
-        # generate list of names of all non-excess cards
-        for key in card_names.keys():
-            if key in card_counts:
-                if card_names[key] in HEROES:
-                    if card_counts[key] > 1:
-                        card_counts[key] = 1
+            # get count of cards via classid
+            for entry in data["assets"]:
+                str_key = str(entry["classid"])
+                if str_key in card_counts:
+                    card_counts[str_key] += 1
                 else:
-                    if card_counts[key] > 3:
-                        card_counts[key] = 3
-                while card_counts[key] > 0:
-                    cards.append(card_names[key])
-                    card_counts[key] -= 1
+                    card_counts[str_key] = 1
+
+            # get dictionary of classids and card names
+            for entry in data["descriptions"]:
+                if entry["marketable"] == 1:
+                    for tag in entry["tags"]:
+                        if tag["internal_name"] == "card":
+                            str_classid = str(entry["classid"])
+                            if str_classid not in card_names:
+                                card_names[str_classid] = entry["market_name"]
+
+            # generate list of names of all non-excess cards
+            for key in card_names.keys():
+                if key in card_counts:
+                    if card_names[key] in HEROES:
+                        if card_counts[key] > 1:
+                            card_counts[key] = 1
+                    else:
+                        if card_counts[key] > 3:
+                            card_counts[key] = 3
+                    while card_counts[key] > 0:
+                        cards.append(card_names[key])
+                        card_counts[key] -= 1
         return cards
 
     # calculate value

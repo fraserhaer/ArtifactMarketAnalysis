@@ -8,7 +8,7 @@ class CollectionPricing(Feature):
         full_collection_value = self.get_total_cost_from_scratch(market_data.get_card_data())
         label_fitter = 11
         print(f"  {'All cards':>{label_fitter}}  - {full_collection_value:>6.2f}")
-        if steamid64:
+        if steamid64 != 0:
             # inventory value is only non-excess cards, so printing this would be disingenuous
             #print(f"  {'Inventory':>{label_fitter}}  - {market_data.inventory.value:>6.2f}")
             to_complete_collection_cost = self.get_total_cost_from_scratch(market_data.get_card_data()) - market_data.inventory.value
