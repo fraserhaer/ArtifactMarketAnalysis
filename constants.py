@@ -1,0 +1,3 @@
+RARITIES = ["Common", "Uncommon", "Rare"]
+
+HEROES = ["Axe", "Bristleback", "Drow Ranger", "Kanna", "Lich", "Tinker", "Legion Commander", "Lycan", "Phantom Assassin", "Omniknight", "Luna", "Bounty Hunter", "Ogre Magi", "Sniper", "Treant Protector", "Beastmaster", "Enchantress", "Sorla Khan", "Chen", "Zeus", "Ursa", "Skywrath Mage", "Winter Wyvern", "Venomancer", "Prellex", "Earthshaker", "Magnus", "Sven", "Dark Seer", "Debbi the Cunning", "Mazzie", "J'Muy the Wise", "Fahrvhan the Dreamer", "Necrophos", "Centaur Warrunner", "Abaddon", "Viper", "Timbersaw", "Keefe the Bold", "Tidehunter", "Crystal Maiden", "Bloodseeker", "Pugna", "Lion", "Storm Spirit", "Meepo", "Rix", "Outworld Devourer"]
