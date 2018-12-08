@@ -1,6 +1,6 @@
 import abc
 
-# if your feature needs information stored on the cards, please add it to base_card_data.py
+# if your feature needs information stored on the cards, please add it to MarketData.py
 
 class Feature(abc.ABC):
     @abc.abstractmethod
